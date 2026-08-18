@@ -2,19 +2,19 @@
 {
   "path": "/",
   "navGroup": "home",
-  "title": "株式会社セミーヤ｜店舗DX・業務効率化支援",
+  "title": "株式会社セミーヤ｜店舗運営事業・店舗DX開発事業",
   "heading": "株式会社セミーヤ",
-  "description": "株式会社セミーヤは、アミューズメント店舗・ポーカー店舗・飲食店などの店舗事業者向けに、店舗運営管理システム「casa店舗運営DX」「casa AI店舗分析」を開発・販売しています。東京都渋谷区。",
+  "description": "株式会社セミーヤは、アミューズメントバーを運営する店舗運営事業と、店舗運営の現場から生まれた管理システム「店舗運営DX」「AI店舗分析」を開発・販売する開発事業を行う会社です。東京都渋谷区。",
   "breadcrumb": null
 }
 PAGE-->
 <section class="hero">
   <div class="container">
     <p class="hero-en">SEMILLA Inc.</p>
-    <h1>店舗運営の現場から生まれた、<br>店舗DXツールの開発・販売</h1>
-    <p class="hero-lead">株式会社セミーヤは、実際の店舗運営で使用・改善を重ねてきた管理システムを「casaシリーズ」として製品化し、アミューズメント店舗・ポーカー店舗・飲食店などの店舗事業者向けに販売しています。</p>
+    <h1>アミューズメントバーの運営と、<br>店舗DXツールの開発・販売</h1>
+    <p class="hero-lead">株式会社セミーヤは、アミューズメントバーを運営する「店舗運営事業」と、自社の店舗運営で使用・改善を重ねてきた管理システムを製品化して販売する「開発事業」を行っています。</p>
     <div class="hero-actions">
-      <a class="btn" href="/dx/">製品・サービスを見る</a>
+      <a class="btn" href="/services/">サービスを見る</a>
       <a class="btn btn-outline" href="/contact/">お問い合わせ</a>
     </div>
   </div>
@@ -22,17 +22,22 @@ PAGE-->
 
 <section class="section">
   <div class="container">
-    <p class="sec-label">Business</p>
-    <h2>事業内容</h2>
-    <p>当社は、店舗運営管理システムの開発・販売を中心とした「店舗DX・業務効率化支援事業」を行っています。実際の店舗運営の現場で使い込み、改善を重ねてきた管理システムを標準化し、導入企業ごとに専用のGoogleスプレッドシート環境を構築してご提供します。</p>
-    <h3>主な対象事業者</h3>
-    <ul class="chip-list">
-      <li>アミューズメント店舗</li>
-      <li>ポーカー店舗</li>
-      <li>飲食店</li>
-      <li>その他多店舗事業者</li>
-    </ul>
-    <p class="sec-more"><a class="text-link" href="/business/">事業内容の詳細を見る</a></p>
+    <p class="sec-label">Services</p>
+    <h2>サービス</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>店舗運営事業</h3>
+        <p class="card-tag">アミューズメントバーの運営</p>
+        <p>アミューズメントバーの運営を行っています。店舗運営の現場で得た知見・ノウハウは、開発事業の製品づくりに活かされています。</p>
+        <p class="card-more"><a class="btn btn-outline" href="/services/store/">詳細を見る</a></p>
+      </div>
+      <div class="card">
+        <h3>開発事業</h3>
+        <p class="card-tag">店舗DX・業務効率化支援</p>
+        <p>実際の店舗運営で使用・改善を重ねてきた管理システムを、アミューズメント店舗・ポーカー店舗・飲食店などの店舗事業者向けのDXツールとして開発・販売しています。</p>
+        <p class="card-more"><a class="btn btn-outline" href="/services/development/">詳細を見る</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -40,20 +45,21 @@ PAGE-->
   <div class="container">
     <p class="sec-label">Products</p>
     <h2>製品情報</h2>
+    <p>開発事業では、以下の2製品を一般販売しています。</p>
     <div class="card-grid">
       <div class="card">
         <h3>{{products.dx.name}}</h3>
         <p class="card-tag">{{products.dx.type}}</p>
         <p>売上・利益・人件費・シフト・日報・タスクなど、店舗運営に必要な管理業務を1つに集約した店舗運営管理システムです。アミューズメント・ポーカー店舗特有の管理業務にも対応しています。</p>
         <p class="card-price">標準販売価格<strong>{{products.dx.priceStd}}</strong></p>
-        <p class="card-more"><a class="btn btn-outline" href="/products/casa-dx/">製品詳細を見る</a></p>
+        <p class="card-more"><a class="btn btn-outline" href="/products/store-dx/">製品詳細を見る</a></p>
       </div>
       <div class="card">
         <h3>{{products.ai.name}}</h3>
         <p class="card-tag">{{products.ai.type}}</p>
         <p>日報・売上・トーナメント管理などの店舗データを連携し、自動集計・分析や利益着地予測を行う店舗データ分析・自動化ツールです。</p>
         <p class="card-price">標準販売価格<strong>{{products.ai.priceStd}}</strong></p>
-        <p class="card-more"><a class="btn btn-outline" href="/products/casa-ai/">製品詳細を見る</a></p>
+        <p class="card-more"><a class="btn btn-outline" href="/products/ai-analysis/">製品詳細を見る</a></p>
       </div>
     </div>
     <p class="sec-more"><a class="text-link" href="/pricing/">料金の詳細を見る</a>　<a class="text-link" href="/flow/">導入の流れを見る</a></p>

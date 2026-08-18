@@ -10,13 +10,17 @@ site.config.json   会社情報・価格・サイトURL・フォーム送信先�
 build.js           ビルドスクリプト（src/ → dist/ を生成）
 serve.js           ローカル確認用サーバ（起動時に自動ビルド）
 src/layout.html    全ページ共通レイアウト（ヘッダー・フッター・meta/OGP）
-src/pages/         各ページ本文（13ページ）
+src/pages/         各ページ本文（14ページ）
 src/assets/        CSS / JS / 画像
 gas/contact-form.gs  お問い合わせフォーム受信用 Google Apps Script
 dist/              ビルド生成物（この中身をそのままホスティングにアップロード）
 ```
 
 ## コマンド
+
+サイト構成: サービス（/services/）の下に「店舗運営事業（/services/store/ アミューズメントバー運営）」と
+「開発事業（/services/development/ 店舗DX）」があり、製品情報（店舗運営DX /products/store-dx/、
+AI店舗分析 /products/ai-analysis/）は開発事業の配下に位置づけている。
 
 ビルド（dist/ を生成）:
 
@@ -47,10 +51,15 @@ src/pages/ 配下の該当ファイルを編集 → `node build.js`。
 
 ### 製品画面キャプチャの追加
 
-1. 画像を src/assets/img/screens/ に配置（例: casa-dx-01.png）
-2. src/pages/products-casa-dx.html / products-casa-ai.html の
+1. 画像を src/assets/img/screens/ に配置（例: store-dx-01.png）
+2. src/pages/products-store-dx.html / products-ai-analysis.html の
    「製品画面」セクション内のコメントアウトを外して編集
 3. `node build.js`
+
+### 運営店舗情報の追加
+
+src/pages/services-store.html の「店舗情報」セクション内のコメントアウトを外し、
+店名・所在地・営業時間を記入して `node build.js`。
 
 ## お問い合わせフォームの本番設定（公開前に必須）
 

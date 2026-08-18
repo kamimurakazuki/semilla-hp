@@ -46,13 +46,13 @@ const VARS = flatten(config);
 // ------------------------------------------------------------
 const NAV = [
   { label: '会社情報', href: '/company/', group: 'company' },
-  { label: '事業内容', href: '/business/', group: 'business' },
   {
-    label: '製品・サービス', href: '/dx/', group: 'products',
+    label: 'サービス', href: '/services/', group: 'services',
     sub: [
-      { label: '店舗DX事業', href: '/dx/' },
-      { label: 'casa店舗運営DX', href: '/products/casa-dx/' },
-      { label: 'casa AI店舗分析', href: '/products/casa-ai/' },
+      { label: '店舗運営事業', href: '/services/store/' },
+      { label: '開発事業（店舗DX）', href: '/services/development/' },
+      { label: '店舗運営DX', href: '/products/store-dx/' },
+      { label: 'AI店舗分析', href: '/products/ai-analysis/' },
       { label: '導入の流れ', href: '/flow/' },
       { label: '料金', href: '/pricing/' }
     ]

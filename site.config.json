@@ -23,14 +23,14 @@
   },
   "products": {
     "dx": {
-      "name": "casa店舗運営DX",
+      "name": "店舗運営DX",
       "priceStd": "3,000,000円（税別）",
       "priceInitial": "1,500,000円（税別）",
       "priceStdNum": "3000000",
       "type": "買い切り型 店舗運営管理システム"
     },
     "ai": {
-      "name": "casa AI店舗分析",
+      "name": "AI店舗分析",
       "priceStd": "1,000,000円（税別）",
       "priceInitial": "500,000円（税別）",
       "priceStdNum": "1000000",
