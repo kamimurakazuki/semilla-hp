@@ -1,0 +1,80 @@
+<!--PAGE
+{
+  "path": "/company/",
+  "navGroup": "company",
+  "title": "会社情報｜株式会社セミーヤ",
+  "heading": "会社情報",
+  "description": "株式会社セミーヤの会社概要（商号・代表者・設立・資本金・所在地・連絡先）と登記上の事業目的をご覧いただけます。",
+  "breadcrumb": [["ホーム", "/"], ["会社情報", ""]]
+}
+PAGE-->
+<section class="section">
+  <div class="container">
+    <p class="sec-label">Profile</p>
+    <h2>会社概要</h2>
+    <table class="info-table">
+      <tbody>
+        <tr><th>商号</th><td>{{company.name}}</td></tr>
+        <tr><th>代表取締役</th><td>{{company.rep}}</td></tr>
+        <tr><th>設立</th><td>{{company.founded}}</td></tr>
+        <tr><th>資本金</th><td>{{company.capital}}</td></tr>
+        <tr><th>本店所在地</th><td>〒{{company.postal}} {{company.address}}</td></tr>
+        <tr><th>電話番号</th><td><a href="tel:{{company.telLink}}">{{company.tel}}</a></td></tr>
+        <tr><th>メールアドレス</th><td><a href="mailto:{{company.email}}">{{company.email}}</a></td></tr>
+        <tr><th>事業内容</th><td>店舗運営管理システム「casaシリーズ」の開発・販売を中心とした、店舗DX・業務効率化支援事業（<a href="/business/">事業内容の詳細</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="sec-label">Registered Business Purposes</p>
+    <h2>登記上の事業目的</h2>
+    <p>当社の登記上の事業目的は以下のとおりです。現在の主な事業については<a href="/business/">事業内容</a>のページをご覧ください。</p>
+    <ol class="plain-list">
+      <li>遊戯場等のアミューズメント施設の経営</li>
+      <li>経営コンサルティング業</li>
+      <li>物品販売業</li>
+      <li>飲食店の経営</li>
+      <li>投資業及び資産運用に関するコンサルティング業務</li>
+      <li>株式、有価証券の取得、保有及び処分</li>
+      <li>不動産の売買、賃貸、管理及びそれらの仲介</li>
+      <li>前各号に附帯関連する一切の業務</li>
+    </ol>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>お問い合わせ</h2>
+    <p>当社へのご連絡は、お電話・メール・お問い合わせフォームで受け付けています。</p>
+    <div class="cta-lines">
+      <a class="cta-tel" href="tel:{{company.telLink}}">{{company.tel}}</a>
+      <p class="cta-mail"><a href="mailto:{{company.email}}">{{company.email}}</a></p>
+      <a class="btn" href="/contact/">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{company.name}}",
+  "alternateName": "{{company.nameEn}}",
+  "url": "{{site.url}}/",
+  "logo": "{{site.url}}/assets/img/logo-512.png",
+  "foundingDate": "{{company.foundedIso}}",
+  "email": "{{company.email}}",
+  "telephone": "{{company.telIntl}}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "postalCode": "{{company.postal}}",
+    "addressRegion": "{{company.addressRegion}}",
+    "addressLocality": "{{company.addressLocality}}",
+    "streetAddress": "{{company.streetAddress}}"
+  }
+}
+</script>

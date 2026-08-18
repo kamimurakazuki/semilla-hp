@@ -1,0 +1,70 @@
+<!--PAGE
+{
+  "path": "/pricing/",
+  "navGroup": "products",
+  "title": "料金｜株式会社セミーヤ",
+  "heading": "料金",
+  "description": "casa店舗運営DX・casa AI店舗分析の料金のご案内。casa店舗運営DXは標準販売価格3,000,000円（税別）、casa AI店舗分析は標準販売価格1,000,000円（税別）。いずれも買い切り型でご提供します。",
+  "breadcrumb": [["ホーム", "/"], ["料金", ""]]
+}
+PAGE-->
+<section class="section">
+  <div class="container">
+    <p class="sec-label">Price</p>
+    <h2>製品料金</h2>
+    <div class="table-scroll">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>製品</th>
+            <th>標準販売価格</th>
+            <th>初期導入企業向け価格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/products/casa-dx/">{{products.dx.name}}</a></td>
+            <td>{{products.dx.priceStd}}</td>
+            <td>{{products.dx.priceInitial}}</td>
+          </tr>
+          <tr>
+            <td><a href="/products/casa-ai/">{{products.ai.name}}</a></td>
+            <td>{{products.ai.priceStd}}</td>
+            <td>{{products.ai.priceInitial}}</td>
+          </tr>
+          <tr class="row-total">
+            <th scope="row">2製品合計</th>
+            <td>{{products.totalStd}}</td>
+            <td>{{products.totalInitial}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="sec-label">Notes</p>
+    <h2>料金に関する注記</h2>
+    <ul class="plain-list">
+      <li>表示価格はすべて税別です。</li>
+      <li>両製品とも買い切り型です。</li>
+      <li>価格には、導入企業ごとの専用環境の構築および会社情報・店舗情報等の初期設定を含みます。</li>
+      <li>初期導入企業向け価格の適用条件については、お問い合わせ時にご確認ください。</li>
+      <li>casaシリーズは完成済みの標準システムをベースにご提供する製品であり、お客様ごとの大幅な追加開発を前提としたサービスではありません。個別のご要望については、対応可否を含めてご相談ください。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>お問い合わせ</h2>
+    <p>お見積り・導入のご相談は、お気軽にご連絡ください。</p>
+    <div class="cta-lines">
+      <a class="cta-tel" href="tel:{{company.telLink}}">{{company.tel}}</a>
+      <p class="cta-mail"><a href="mailto:{{company.email}}">{{company.email}}</a></p>
+      <a class="btn" href="/contact/">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>

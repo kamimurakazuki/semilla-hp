@@ -1,0 +1,142 @@
+<!--PAGE
+{
+  "path": "/",
+  "navGroup": "home",
+  "title": "株式会社セミーヤ｜店舗DX・業務効率化支援",
+  "heading": "株式会社セミーヤ",
+  "description": "株式会社セミーヤは、アミューズメント店舗・ポーカー店舗・飲食店などの店舗事業者向けに、店舗運営管理システム「casa店舗運営DX」「casa AI店舗分析」を開発・販売しています。東京都渋谷区。",
+  "breadcrumb": null
+}
+PAGE-->
+<section class="hero">
+  <div class="container">
+    <p class="hero-en">SEMILLA Inc.</p>
+    <h1>店舗運営の現場から生まれた、<br>店舗DXツールの開発・販売</h1>
+    <p class="hero-lead">株式会社セミーヤは、実際の店舗運営で使用・改善を重ねてきた管理システムを「casaシリーズ」として製品化し、アミューズメント店舗・ポーカー店舗・飲食店などの店舗事業者向けに販売しています。</p>
+    <div class="hero-actions">
+      <a class="btn" href="/dx/">製品・サービスを見る</a>
+      <a class="btn btn-outline" href="/contact/">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="sec-label">Business</p>
+    <h2>事業内容</h2>
+    <p>当社は、店舗運営管理システムの開発・販売を中心とした「店舗DX・業務効率化支援事業」を行っています。実際の店舗運営の現場で使い込み、改善を重ねてきた管理システムを標準化し、導入企業ごとに専用のGoogleスプレッドシート環境を構築してご提供します。</p>
+    <h3>主な対象事業者</h3>
+    <ul class="chip-list">
+      <li>アミューズメント店舗</li>
+      <li>ポーカー店舗</li>
+      <li>飲食店</li>
+      <li>その他多店舗事業者</li>
+    </ul>
+    <p class="sec-more"><a class="text-link" href="/business/">事業内容の詳細を見る</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="sec-label">Products</p>
+    <h2>製品情報</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>{{products.dx.name}}</h3>
+        <p class="card-tag">{{products.dx.type}}</p>
+        <p>売上・利益・人件費・シフト・日報・タスクなど、店舗運営に必要な管理業務を1つに集約した店舗運営管理システムです。アミューズメント・ポーカー店舗特有の管理業務にも対応しています。</p>
+        <p class="card-price">標準販売価格<strong>{{products.dx.priceStd}}</strong></p>
+        <p class="card-more"><a class="btn btn-outline" href="/products/casa-dx/">製品詳細を見る</a></p>
+      </div>
+      <div class="card">
+        <h3>{{products.ai.name}}</h3>
+        <p class="card-tag">{{products.ai.type}}</p>
+        <p>日報・売上・トーナメント管理などの店舗データを連携し、自動集計・分析や利益着地予測を行う店舗データ分析・自動化ツールです。</p>
+        <p class="card-price">標準販売価格<strong>{{products.ai.priceStd}}</strong></p>
+        <p class="card-more"><a class="btn btn-outline" href="/products/casa-ai/">製品詳細を見る</a></p>
+      </div>
+    </div>
+    <p class="sec-more"><a class="text-link" href="/pricing/">料金の詳細を見る</a>　<a class="text-link" href="/flow/">導入の流れを見る</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="sec-label">Flow</p>
+    <h2>導入の流れ</h2>
+    <ol class="steps-mini">
+      <li>お問い合わせ</li>
+      <li>ヒアリング・製品デモ</li>
+      <li>お見積り・ご契約</li>
+      <li>専用環境の構築・納品</li>
+    </ol>
+    <p class="sec-more"><a class="text-link" href="/flow/">導入の流れの詳細を見る</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="sec-label">Company</p>
+    <h2>会社概要</h2>
+    <table class="info-table">
+      <tbody>
+        <tr><th>商号</th><td>{{company.name}}</td></tr>
+        <tr><th>代表取締役</th><td>{{company.rep}}</td></tr>
+        <tr><th>設立</th><td>{{company.founded}}</td></tr>
+        <tr><th>資本金</th><td>{{company.capital}}</td></tr>
+        <tr><th>本店所在地</th><td>〒{{company.postal}} {{company.address}}</td></tr>
+      </tbody>
+    </table>
+    <p class="sec-more"><a class="text-link" href="/company/">会社情報の詳細を見る</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>お問い合わせ</h2>
+    <p>製品のご質問・導入のご相談・デモのご依頼は、お気軽にご連絡ください。</p>
+    <div class="cta-lines">
+      <a class="cta-tel" href="tel:{{company.telLink}}">{{company.tel}}</a>
+      <p class="cta-mail"><a href="mailto:{{company.email}}">{{company.email}}</a></p>
+      <a class="btn" href="/contact/">お問い合わせフォーム</a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{company.name}}",
+  "alternateName": "{{company.nameEn}}",
+  "url": "{{site.url}}/",
+  "logo": "{{site.url}}/assets/img/logo-512.png",
+  "foundingDate": "{{company.foundedIso}}",
+  "email": "{{company.email}}",
+  "telephone": "{{company.telIntl}}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "postalCode": "{{company.postal}}",
+    "addressRegion": "{{company.addressRegion}}",
+    "addressLocality": "{{company.addressLocality}}",
+    "streetAddress": "{{company.streetAddress}}"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "{{company.telIntl}}",
+    "email": "{{company.email}}",
+    "contactType": "customer support",
+    "availableLanguage": ["Japanese"]
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{site.name}}",
+  "url": "{{site.url}}/",
+  "inLanguage": "ja"
+}
+</script>

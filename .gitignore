@@ -1,0 +1,10 @@
+.env
+node_modules/
+*.log
+output/
+state/
+.DS_Store
+dist/
+build/
+tmp/
+temp/

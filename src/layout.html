@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{page.title}}</title>
+<meta name="description" content="{{page.description}}">
+{{page.robots}}<link rel="canonical" href="{{page.url}}">
+<meta property="og:site_name" content="{{site.name}}">
+<meta property="og:title" content="{{page.title}}">
+<meta property="og:description" content="{{page.description}}">
+<meta property="og:type" content="{{page.ogType}}">
+<meta property="og:url" content="{{page.url}}">
+<meta property="og:image" content="{{site.url}}{{site.ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b3a5f">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/style.css">
+{{page.jsonld}}</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <p class="site-logo"><a href="/"><span class="logo-ja">株式会社セミーヤ</span><span class="logo-en">SEMILLA Inc.</span></a></p>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="global-nav"><span class="menu-toggle-bar" aria-hidden="true"></span><span class="menu-toggle-label">メニュー</span></button>
+    <nav id="global-nav" class="global-nav" aria-label="サイト内メニュー">
+{{nav}}
+    </nav>
+  </div>
+</header>
+{{pagehead}}
+<main id="main">
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-company">
+      <p class="footer-name">株式会社セミーヤ</p>
+      <p class="footer-address">〒{{company.postal}} {{company.address}}</p>
+      <p class="footer-contact">TEL：<a href="tel:{{company.telLink}}">{{company.tel}}</a><br>MAIL：<a href="mailto:{{company.email}}">{{company.email}}</a></p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <ul>
+        <li><a href="/company/">会社情報</a></li>
+        <li><a href="/business/">事業内容</a></li>
+        <li><a href="/dx/">店舗DX事業</a></li>
+        <li><a href="/products/casa-dx/">casa店舗運営DX</a></li>
+        <li><a href="/products/casa-ai/">casa AI店舗分析</a></li>
+        <li><a href="/flow/">導入の流れ</a></li>
+      </ul>
+      <ul>
+        <li><a href="/pricing/">料金</a></li>
+        <li><a href="/faq/">よくあるご質問</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+        <li><a href="/privacy/">プライバシーポリシー</a></li>
+        <li><a href="/terms/">サイトご利用規約</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p><small>&copy; 2026 株式会社セミーヤ</small></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/main.js" defer></script>
+{{page.scripts}}</body>
+</html>

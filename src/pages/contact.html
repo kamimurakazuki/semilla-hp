@@ -1,0 +1,75 @@
+<!--PAGE
+{
+  "path": "/contact/",
+  "navGroup": "contact",
+  "title": "お問い合わせ｜株式会社セミーヤ",
+  "heading": "お問い合わせ",
+  "description": "株式会社セミーヤへのお問い合わせページです。製品のご質問・導入のご相談・お見積り・デモのご依頼は、フォーム・メール・お電話で受け付けています。",
+  "breadcrumb": [["ホーム", "/"], ["お問い合わせ", ""]],
+  "scripts": ["/assets/js/contact.js"]
+}
+PAGE-->
+<section class="section">
+  <div class="container content-block">
+    <p>製品に関するご質問、導入のご相談、お見積り・デモのご依頼などは、以下のフォームよりお問い合わせください。お電話・メールでも受け付けています。</p>
+
+    <div class="contact-direct">
+      <p class="tel"><a href="tel:{{company.telLink}}">TEL：{{company.tel}}</a></p>
+      <p class="mail">MAIL：<a href="mailto:{{company.email}}">{{company.email}}</a></p>
+      <p class="form-note">{{company.name}}（〒{{company.postal}} {{company.address}}）</p>
+    </div>
+
+    <div id="form-success" class="form-msg form-msg-success" hidden>
+      <p><strong>お問い合わせを送信しました。</strong><br>内容を確認のうえ、担当者よりご連絡いたします。</p>
+    </div>
+    <div id="form-error" class="form-msg form-msg-error" hidden>
+      <p><strong>送信できませんでした。</strong><br>お手数ですが、メール（<a href="mailto:{{company.email}}">{{company.email}}</a>）またはお電話（{{company.tel}}）にてご連絡ください。</p>
+    </div>
+
+    <form id="contact-form" data-endpoint="{{contactFormEndpoint}}">
+      <div class="form-field">
+        <label for="f-company">会社名・店舗名<span class="opt">任意</span></label>
+        <input type="text" id="f-company" name="company" autocomplete="organization">
+      </div>
+      <div class="form-field">
+        <label for="f-name">お名前<span class="req">必須</span></label>
+        <input type="text" id="f-name" name="name" required autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="f-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="f-email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-field">
+        <label for="f-tel">電話番号<span class="opt">任意</span></label>
+        <input type="tel" id="f-tel" name="tel" autocomplete="tel">
+      </div>
+      <div class="form-field">
+        <label for="f-type">お問い合わせ種別<span class="req">必須</span></label>
+        <select id="f-type" name="type" required>
+          <option value="">選択してください</option>
+          <option>製品について</option>
+          <option>導入のご相談</option>
+          <option>お見積りについて</option>
+          <option>デモのご依頼</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="f-message">お問い合わせ内容<span class="req">必須</span></label>
+        <textarea id="f-message" name="message" required></textarea>
+      </div>
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="f-website">この欄には入力しないでください</label>
+        <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-consent">
+        <label for="f-consent"><input type="checkbox" id="f-consent" name="consent" required><a href="/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する<span class="req">必須</span></label>
+      </div>
+      <p><button type="submit" id="form-submit" class="btn">送信する</button></p>
+      <p class="form-note">送信いただいた個人情報は、プライバシーポリシーに基づき、お問い合わせへの対応のために利用します。</p>
+    </form>
+    <noscript>
+      <p class="form-msg form-msg-error">JavaScriptが無効な環境では本フォームをご利用いただけません。お手数ですが、メールまたはお電話にてお問い合わせください。</p>
+    </noscript>
+  </div>
+</section>

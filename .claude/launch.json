@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "semilla-hp",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve.js"],
+      "port": 4649
+    }
+  ]
+}

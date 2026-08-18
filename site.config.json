@@ -1,0 +1,43 @@
+{
+  "site": {
+    "url": "https://semilla-inc.com",
+    "name": "株式会社セミーヤ",
+    "ogImage": "/assets/img/ogp.png"
+  },
+  "company": {
+    "name": "株式会社セミーヤ",
+    "nameEn": "Semilla Inc.",
+    "rep": "矢部 京平",
+    "founded": "2022年1月4日",
+    "foundedIso": "2022-01-04",
+    "capital": "1,000万円",
+    "postal": "150-0021",
+    "address": "東京都渋谷区恵比寿西1-8-3 602",
+    "addressRegion": "東京都",
+    "addressLocality": "渋谷区",
+    "streetAddress": "恵比寿西1-8-3 602",
+    "tel": "070-8957-4088",
+    "telLink": "07089574088",
+    "telIntl": "+81-70-8957-4088",
+    "email": "kamimura@semilla-inc.com"
+  },
+  "products": {
+    "dx": {
+      "name": "casa店舗運営DX",
+      "priceStd": "3,000,000円（税別）",
+      "priceInitial": "1,500,000円（税別）",
+      "priceStdNum": "3000000",
+      "type": "買い切り型 店舗運営管理システム"
+    },
+    "ai": {
+      "name": "casa AI店舗分析",
+      "priceStd": "1,000,000円（税別）",
+      "priceInitial": "500,000円（税別）",
+      "priceStdNum": "1000000",
+      "type": "買い切り型 店舗データ分析・自動化ツール"
+    },
+    "totalStd": "4,000,000円（税別）",
+    "totalInitial": "2,000,000円（税別）"
+  },
+  "contactFormEndpoint": ""
+}
