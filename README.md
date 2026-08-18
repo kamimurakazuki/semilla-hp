@@ -83,19 +83,33 @@ src/pages/services-store.html の「店舗情報」セクション内のコメ�
 
 スパム対策: honeypot欄 + 送信までの最短時間チェック（3秒）をフォーム側とGAS側の両方で実施。
 
-## 公開手順（推奨: Cloudflare Pages）
+## 公開（GitHub Pages・稼働中）
 
-1. https://dash.cloudflare.com で Pages プロジェクトを作成（無料プラン可）
-   「Upload assets」方式で dist/ の中身をアップロードするのが最も簡単
-2. カスタムドメイン semilla-inc.com / www.semilla-inc.com を追加
-3. DNS設定（現在 dnsv.jp = お名前.com系で管理）で、Pagesの指示に従い
-   CNAME等のレコードを追加する
+公開URL: https://kamimurakazuki.github.io/semilla-hp/
+リポジトリ: https://github.com/kamimurakazuki/semilla-hp （public）
+
+デプロイは自動化済み。main ブランチに push すると GitHub Actions
+（.github/workflows/deploy.yml）がビルドして公開する。
+
+更新の流れ:
+
+    node serve.js      # ローカルで確認
+    git add -A && git commit -m "変更内容"
+    git push           # ← push すると自動で本番反映（1〜2分）
+
+### 独自ドメイン（semilla-inc.com）への切替手順
+
+1. GitHubリポジトリ Settings → Pages → Custom domain に semilla-inc.com を設定
+2. dnsv.jp（お名前.com系）のDNSに、GitHub Pages 用のレコードを追加
+   （apex: A 185.199.108.153 / 109.153 / 110.153 / 111.153、www: CNAME kamimurakazuki.github.io）
+3. .github/workflows/deploy.yml の env を変更:
+   SITE_URL: https://semilla-inc.com、BASE_PATH: （空にする）
+4. commit → push で反映。HTTPSはGitHubが自動発行（Enforce HTTPSをON）
 
 【重要】DNS変更時の注意:
 - MXレコード（smtp.google.com = Google Workspaceのメール）と
   TXTレコード（google-site-verification）は絶対に削除・変更しないこと。
-  変更するのはWeb用（A / AAAA / CNAME）のみ。
-- SSLはCloudflare Pagesが自動発行する。
+  追加・変更するのはWeb用（A / CNAME）のみ。
 
 ## 公開前チェックリスト
 
