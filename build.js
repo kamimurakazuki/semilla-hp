@@ -26,6 +26,11 @@ const DIST = path.join(ROOT, 'dist');
 // ------------------------------------------------------------
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'site.config.json'), 'utf8'));
 
+// デプロイ先に応じた上書き（GitHub Pages等のサブパス配信用）
+//   SITE_URL=https://example.github.io/repo BASE_PATH=/repo node build.js
+if (process.env.SITE_URL) config.site.url = process.env.SITE_URL;
+const BASE_PATH = process.env.BASE_PATH || '';
+
 function flatten(obj, prefix, out) {
   out = out || {};
   for (const key of Object.keys(obj)) {
@@ -193,6 +198,11 @@ function build() {
       continue;
     }
 
+    // サブパス配信時はルート相対リンクにベースパスを付与
+    if (BASE_PATH) {
+      html = html.replace(/(href|src)="\/(?!\/)/g, '$1="' + BASE_PATH + '/');
+    }
+
     // 出力先: "/company/" → dist/company/index.html、"/404.html" → dist/404.html
     const outRel = meta.path.endsWith('/') ? meta.path + 'index.html' : meta.path;
     const outPath = path.join(DIST, outRel.replace(/^\//, ''));
@@ -241,7 +251,8 @@ function build() {
     'User-agent: *\nAllow: /\n\nSitemap: ' + config.site.url + '/sitemap.xml\n'
   );
 
-  console.log('ビルド完了: ' + count + 'ページ + sitemap.xml + robots.txt → ' + DIST);
+  const mode = BASE_PATH ? '（BASE_PATH=' + BASE_PATH + '）' : '';
+  console.log('ビルド完了: ' + count + 'ページ + sitemap.xml + robots.txt → ' + DIST + mode);
 }
 
 build();

@@ -18,6 +18,14 @@
     return '';
   }
 
+  // 送信先未設定（本番でGAS URL未設定）の場合はフォームを隠し、準備中の案内を表示
+  if (!endpoint()) {
+    form.hidden = true;
+    var unavailable = document.getElementById('form-unavailable');
+    if (unavailable) unavailable.hidden = false;
+    return;
+  }
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     failure.hidden = true;

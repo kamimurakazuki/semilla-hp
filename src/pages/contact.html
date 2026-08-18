@@ -25,6 +25,9 @@ PAGE-->
     <div id="form-error" class="form-msg form-msg-error" hidden>
       <p><strong>送信できませんでした。</strong><br>お手数ですが、メール（<a href="mailto:{{company.email}}">{{company.email}}</a>）またはお電話（{{company.tel}}）にてご連絡ください。</p>
     </div>
+    <div id="form-unavailable" class="screens-note" hidden>
+      <p><strong>お問い合わせフォームは現在準備中です。</strong><br>お手数ですが、上記のメールまたはお電話にてご連絡ください。</p>
+    </div>
 
     <form id="contact-form" data-endpoint="{{contactFormEndpoint}}">
       <div class="form-field">
