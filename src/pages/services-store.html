@@ -30,18 +30,18 @@ PAGE-->
   <div class="container">
     <p class="sec-label">Stores</p>
     <h2>店舗情報</h2>
-    <div class="screens-note">
-      <p>運営店舗の情報は、順次このページに掲載予定です。</p>
+    <div class="card">
+      <h3>casa上野店</h3>
+      <p class="card-tag">アミューズメントバー</p>
+      <table class="info-table">
+        <tbody>
+          <tr><th>所在地</th><td>〒110-0005 東京都台東区上野2-12-16 池の端スカイビル B1</td></tr>
+          <tr><th>営業時間</th><td>13:00〜LAST</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:0358178460">03-5817-8460</a></td></tr>
+          <tr><th>SNS・地図</th><td><a href="https://www.instagram.com/casa_ueno/" target="_blank" rel="noopener">Instagram</a>　<a href="https://x.com/casa_ueno" target="_blank" rel="noopener">X（旧Twitter）</a>　<a href="https://maps.app.goo.gl/S2QGbyVhsTXK6DN78" target="_blank" rel="noopener">Googleマップ</a></td></tr>
+        </tbody>
+      </table>
     </div>
-    <!--
-      店舗情報を掲載する場合は、以下のコメントを外して編集してください。
-    <div class="card-grid">
-      <div class="card">
-        <h3>（店舗名）</h3>
-        <p>所在地：（住所）<br>営業時間:（営業時間）</p>
-      </div>
-    </div>
-    -->
   </div>
 </section>
 
@@ -50,9 +50,31 @@ PAGE-->
     <h2>お問い合わせ</h2>
     <p>店舗運営事業に関するご質問は、お気軽にご連絡ください。</p>
     <div class="cta-lines">
-      <a class="cta-tel" href="tel:{{company.telLink}}">{{company.tel}}</a>
       <p class="cta-mail"><a href="mailto:{{company.email}}">{{company.email}}</a></p>
       <a class="btn" href="/contact/">お問い合わせフォーム</a>
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarOrPub",
+  "name": "casa上野店",
+  "url": "{{site.url}}/services/store/",
+  "telephone": "+81-3-5817-8460",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "postalCode": "110-0005",
+    "addressRegion": "東京都",
+    "addressLocality": "台東区",
+    "streetAddress": "上野2-12-16 池の端スカイビル B1"
+  },
+  "parentOrganization": { "@type": "Organization", "name": "{{company.name}}", "url": "{{site.url}}/" },
+  "sameAs": [
+    "https://www.instagram.com/casa_ueno/",
+    "https://x.com/casa_ueno"
+  ]
+}
+</script>

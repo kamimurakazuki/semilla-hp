@@ -56,10 +56,10 @@ src/pages/ 配下の該当ファイルを編集 → `node build.js`。
    「製品画面」セクション内のコメントアウトを外して編集
 3. `node build.js`
 
-### 運営店舗情報の追加
+### 運営店舗情報の更新
 
-src/pages/services-store.html の「店舗情報」セクション内のコメントアウトを外し、
-店名・所在地・営業時間を記入して `node build.js`。
+src/pages/services-store.html の「店舗情報」セクションに casa上野店 を掲載済み。
+店舗を追加する場合は、同セクション内の card ブロックを複製して編集し `node build.js`。
 
 ## お問い合わせフォームの本番設定（公開前に必須）
 
