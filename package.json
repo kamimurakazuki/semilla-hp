@@ -1,0 +1,13 @@
+{
+  "name": "semilla-hp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "株式会社セミーヤ コーポレートサイト（静的サイト・依存パッケージなし）",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "start": "node server.js"
+  }
+}

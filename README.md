@@ -83,33 +83,56 @@ src/pages/services-store.html の「店舗情報」セクションに casa上野
 
 スパム対策: honeypot欄 + 送信までの最短時間チェック（3秒）をフォーム側とGAS側の両方で実施。
 
-## 公開（GitHub Pages・稼働中）
+## 公開
 
-公開URL: https://kamimurakazuki.github.io/semilla-hp/
+正式URL（canonical）: https://semilla-inc.com/ （独自ドメイン・Railway配信）
+ミラー: https://kamimurakazuki.github.io/semilla-hp/ （GitHub Pages・移行期間中のみ）
 リポジトリ: https://github.com/kamimurakazuki/semilla-hp （public）
 
-デプロイは自動化済み。main ブランチに push すると GitHub Actions
-（.github/workflows/deploy.yml）がビルドして公開する。
+main ブランチに push すると GitHub Actions が GitHub Pages 版を自動更新する。
+Railway は GitHub リポジトリ連携で、push のたびに自動ビルド・自動デプロイされる。
 
 更新の流れ:
 
     node serve.js      # ローカルで確認
     git add -A && git commit -m "変更内容"
-    git push           # ← push すると自動で本番反映（1〜2分）
+    git push           # ← push で GitHub Pages / Railway 両方に自動反映
 
-### 独自ドメイン（semilla-inc.com）への切替手順
+### Railway 構成
 
-1. GitHubリポジトリ Settings → Pages → Custom domain に semilla-inc.com を設定
-2. dnsv.jp（お名前.com系）のDNSに、GitHub Pages 用のレコードを追加
-   （apex: A 185.199.108.153 / 109.153 / 110.153 / 111.153、www: CNAME kamimurakazuki.github.io）
-3. .github/workflows/deploy.yml の env を変更:
-   SITE_URL: https://semilla-inc.com、BASE_PATH: （空にする）
-4. commit → push で反映。HTTPSはGitHubが自動発行（Enforce HTTPSをON）
+- ビルド: node build.js（railway.json の buildCommand。環境変数は不要）
+- 配信: node server.js（PORT は Railway が自動注入）
+- server.js の機能: dist/ 配信、末尾スラッシュ301、www→apex 301、
+  http→https 301、404.html、gzip、キャッシュ/セキュリティヘッダー
+- ローカルでの本番同等確認: node build.js && node server.js → http://localhost:8080/
 
-【重要】DNS変更時の注意:
-- MXレコード（smtp.google.com = Google Workspaceのメール）と
-  TXTレコード（google-site-verification）は絶対に削除・変更しないこと。
-  追加・変更するのはWeb用（A / CNAME）のみ。
+### Railway 初回セットアップ（ダッシュボード操作）
+
+1. https://railway.app → New Project → Deploy from GitHub repo → kamimurakazuki/semilla-hp
+   （railway.json を自動検出してビルド・起動する）
+2. Service → Settings → Networking → Generate Domain で確認用URL（*.up.railway.app）を発行
+3. 表示確認後、Custom Domain に semilla-inc.com と www.semilla-inc.com を追加
+   → それぞれに表示される CNAME 先の値を控えて DNS に設定する
+
+### DNS 設定（お名前.com / semilla-inc.com）
+
+現状: ネームサーバー = dnsv.jp（お名前.com）、apex/www の Web 用レコードは未設定。
+
+Railway は apex ドメインに固定 A レコードを提供しないため、apex（semilla-inc.com）を
+メインにする場合は CNAME Flattening 対応の DNS（Cloudflare 無料プラン等）への
+ネームサーバー変更が必要（お名前.com標準DNSは apex の CNAME/ALIAS 非対応）。
+
+【重要】DNS変更時の注意（メールを止めないこと）:
+- MX 1 smtp.google.com（Google Workspace のメール）と
+  TXT google-site-verification=... は必ず引き継ぐ・削除しないこと。
+  追加・変更するのは Web 用（CNAME）のみ。
+
+### GitHub Pages の扱い（独自ドメイン公開後）
+
+canonical / OGP / sitemap は https://semilla-inc.com に統一済みのため、
+GitHub Pages 版が残っていても検索上の正式URLは独自ドメインになる。
+独自ドメインでの表示確認後、GitHub Pages は停止してよい
+（リポジトリ Settings → Pages → Source を None に変更。リポジトリ自体は残す）。
 
 ## 公開前チェックリスト
 
