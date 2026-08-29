@@ -85,7 +85,8 @@ src/pages/services-store.html の「店舗情報」セクションに casa上野
 
 ## 公開
 
-正式URL（canonical）: https://semilla-inc.com/ （独自ドメイン・Railway配信）
+正式URL（canonical）: https://www.semilla-inc.com/ （独自ドメイン・Railway配信）
+apex（semilla-inc.com）: お名前.comのURL転送で www へ転送（オプション契約が必要）
 ミラー: https://kamimurakazuki.github.io/semilla-hp/ （GitHub Pages・移行期間中のみ）
 リポジトリ: https://github.com/kamimurakazuki/semilla-hp （public）
 
@@ -102,7 +103,7 @@ Railway は GitHub リポジトリ連携で、push のたびに自動ビルド�
 
 - ビルド: node build.js（railway.json の buildCommand。環境変数は不要）
 - 配信: node server.js（PORT は Railway が自動注入）
-- server.js の機能: dist/ 配信、末尾スラッシュ301、www→apex 301、
+- server.js の機能: dist/ 配信、末尾スラッシュ301、apex→www 301、
   http→https 301、404.html、gzip、キャッシュ/セキュリティヘッダー
 - ローカルでの本番同等確認: node build.js && node server.js → http://localhost:8080/
 
@@ -111,25 +112,29 @@ Railway は GitHub リポジトリ連携で、push のたびに自動ビルド�
 1. https://railway.app → New Project → Deploy from GitHub repo → kamimurakazuki/semilla-hp
    （railway.json を自動検出してビルド・起動する）
 2. Service → Settings → Networking → Generate Domain で確認用URL（*.up.railway.app）を発行
-3. 表示確認後、Custom Domain に semilla-inc.com と www.semilla-inc.com を追加
-   → それぞれに表示される CNAME 先の値を控えて DNS に設定する
+3. 表示確認後、Custom Domain に www.semilla-inc.com を追加
+   → 表示される CNAME 先の値と TXT 認証値を控えて DNS に設定する
 
 ### DNS 設定（お名前.com / semilla-inc.com）
 
-現状: ネームサーバー = dnsv.jp（お名前.com）、apex/www の Web 用レコードは未設定。
+ネームサーバー = お名前.com標準（01〜04.dnsv.jp）のまま運用する。
+お名前.com Navi「DNSレコード設定」で以下を追加（Railway導入済みの現行値）:
 
-Railway は apex ドメインに固定 A レコードを提供しないため、apex（semilla-inc.com）を
-メインにする場合は CNAME Flattening 対応の DNS（Cloudflare 無料プラン等）への
-ネームサーバー変更が必要（お名前.com標準DNSは apex の CNAME/ALIAS 非対応）。
+    CNAME  www              6jqaeoxt.up.railway.app
+    TXT    _railway-verify.www  railway-verify=（Railwayのwww側ダイアログの値・全文）
 
-【重要】DNS変更時の注意（メールを止めないこと）:
+apex（semilla-inc.com）はお名前.com標準DNSでは Railway に向けられない
+（apex CNAME/ALIAS 非対応・Railwayは固定IPなし）。
+apex アクセスはお名前.comの「URL転送」オプションで https://www.semilla-inc.com へ転送する。
+
+【重要】DNS編集時の注意（メールを止めないこと）:
 - MX 1 smtp.google.com（Google Workspace のメール）と
-  TXT google-site-verification=... は必ず引き継ぐ・削除しないこと。
-  追加・変更するのは Web 用（CNAME）のみ。
+  TXT google-site-verification=... は削除・変更しないこと。
+  追加するのは Web 用（www の CNAME / TXT）のみ。
 
 ### GitHub Pages の扱い（独自ドメイン公開後）
 
-canonical / OGP / sitemap は https://semilla-inc.com に統一済みのため、
+canonical / OGP / sitemap は https://www.semilla-inc.com に統一済みのため、
 GitHub Pages 版が残っていても検索上の正式URLは独自ドメインになる。
 独自ドメインでの表示確認後、GitHub Pages は停止してよい
 （リポジトリ Settings → Pages → Source を None に変更。リポジトリ自体は残す）。

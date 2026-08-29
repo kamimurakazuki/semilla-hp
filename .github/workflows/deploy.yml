@@ -1,7 +1,7 @@
 # GitHub Pages 自動デプロイ
 # main ブランチに push されるたびに、サイトをビルドして公開する。
 #
-# 正式URL（canonical・OGP・sitemap）は独自ドメイン https://semilla-inc.com に統一済み。
+# 正式URL（canonical・OGP・sitemap）は独自ドメイン https://www.semilla-inc.com に統一済み。
 # BASE_PATH は GitHub Pages のサブパス配信（/semilla-hp/）のためのアセットパス調整にのみ使用。
 # 本番は Railway（railway.json / server.js）で配信する。
 name: deploy
@@ -31,7 +31,7 @@ jobs:
       - name: Build site
         run: node build.js
         env:
-          SITE_URL: https://semilla-inc.com
+          SITE_URL: https://www.semilla-inc.com
           BASE_PATH: /semilla-hp
       - uses: actions/upload-pages-artifact@v3
         with:

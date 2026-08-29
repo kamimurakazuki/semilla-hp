@@ -3,7 +3,7 @@
 // 役割:
 //   - dist/ を配信（/services/store/ のようなディレクトリURLは index.html を返す）
 //   - 末尾スラッシュなしのディレクトリURLは 301 でスラッシュ付きへ
-//   - www.ドメイン → apexドメイン へ 301 リダイレクト
+//   - apexドメイン → www へ 301 リダイレクト（正式URLは https://www.semilla-inc.com）
 //   - x-forwarded-proto: http → https へ 301 リダイレクト
 //   - 存在しないURLは 404.html を 404 ステータスで返す
 //
@@ -102,9 +102,9 @@ const server = http.createServer((req, res) => {
   const rawHost = String(req.headers.host || '').toLowerCase();
   const host = rawHost.split(':')[0];
 
-  // www → apex（例: www.semilla-inc.com → semilla-inc.com）
-  if (host.startsWith('www.')) {
-    redirect(res, req, 'https://' + host.slice(4) + req.url);
+  // apex → www（正式URLは https://www.semilla-inc.com）
+  if (host === 'semilla-inc.com') {
+    redirect(res, req, 'https://www.semilla-inc.com' + req.url);
     return;
   }
   // http → https（プロキシ経由のアクセスのみ。ローカル直アクセスは対象外）
