@@ -101,8 +101,21 @@ Railway は GitHub リポジトリ連携で、push のたびに自動ビルド�
 
 ### Railway 構成
 
-- ビルド: node build.js（railway.json の buildCommand。環境変数は不要）
-- 配信: node server.js（PORT は Railway が自動注入）
+ビルド・起動・ヘルスチェック・再起動の設定は、Railway のサービス設定（semilla-hp → Settings）で管理する。
+railway.json（Config as Code）は Railway 側で非推奨になり、2026-12-01 以降は読まれないため削除した。
+設定値はリポジトリに残らないので、Settings を変えたらこの表も更新すること。
+
+    Builder                 Railpack
+    Custom Build Command    node build.js
+    Custom Start Command    node server.js
+    Healthcheck Path        /
+    Healthcheck Timeout     100（秒。未設定時の既定は 300）
+    Restart Policy          On Failure（最大 10 回）
+
+- Node のバージョン: package.json の engines.node（24.x）を Railpack が読んで決める
+- Build / Start Command を空にしても、Railpack が package.json の scripts
+  （npm run build / npm run start）で同じ処理を実行する
+- 環境変数は不要（PORT は Railway が自動注入）
 - server.js の機能: dist/ 配信、末尾スラッシュ301、apex→www 301、
   http→https 301、404.html、gzip、キャッシュ/セキュリティヘッダー
 - ローカルでの本番同等確認: node build.js && node server.js → http://localhost:8080/
@@ -110,7 +123,7 @@ Railway は GitHub リポジトリ連携で、push のたびに自動ビルド�
 ### Railway 初回セットアップ（ダッシュボード操作）
 
 1. https://railway.app → New Project → Deploy from GitHub repo → kamimurakazuki/semilla-hp
-   （railway.json を自動検出してビルド・起動する）
+   → Service → Settings を上の「Railway 構成」の表どおりに設定する
 2. Service → Settings → Networking → Generate Domain で確認用URL（*.up.railway.app）を発行
 3. 表示確認後、Custom Domain に www.semilla-inc.com を追加
    → 表示される CNAME 先の値と TXT 認証値を控えて DNS に設定する

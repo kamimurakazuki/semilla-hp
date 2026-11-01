@@ -3,7 +3,7 @@
 #
 # 正式URL（canonical・OGP・sitemap）は独自ドメイン https://www.semilla-inc.com に統一済み。
 # BASE_PATH は GitHub Pages のサブパス配信（/semilla-hp/）のためのアセットパス調整にのみ使用。
-# 本番は Railway（railway.json / server.js）で配信する。
+# 本番は Railway（server.js、設定は Railway のサービス設定で管理）で配信する。
 name: deploy
 
 on:
