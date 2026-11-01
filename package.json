@@ -4,7 +4,7 @@
   "private": true,
   "description": "株式会社セミーヤ コーポレートサイト（静的サイト・依存パッケージなし）",
   "engines": {
-    "node": ">=18"
+    "node": "24.x"
   },
   "scripts": {
     "build": "node build.js",
